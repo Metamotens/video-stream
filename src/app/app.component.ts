@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import { StreamApiService } from './core/services/stream-api.service';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,16 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'video-stream';
+  streamApi = inject(StreamApiService);
+
+  constructor() {
+
+    this.streamApi.getStreams().subscribe(data => {
+      console.log(data);
+    });
+
+
+
+    // https://www.phind.com/search?cache=z30vid7o7318pw15bhs902tx
+  }
 }
