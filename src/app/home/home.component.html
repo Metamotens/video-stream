@@ -1,0 +1,8 @@
+<section class="grid gap-4 grid-cols-3 p-4">
+    @for (stream of streams(); track $index) {
+    <a ticle class="prose border cursor-pointer" [routerLink]="[ '/', stream.user_name]">
+        <h3>{{ stream.title }}</h3>
+        <img [src]="stream.thumbnail_url" alt="thumbnail_url">
+    </a>
+    }
+</section>
